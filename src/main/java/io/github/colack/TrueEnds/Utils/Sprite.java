@@ -1,5 +1,14 @@
 package io.github.colack.TrueEnds.Utils;
 
+import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.WindowConstants;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 /**
  * Sprite class for True Ends.
  * @since 0.0.1

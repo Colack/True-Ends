@@ -7,6 +7,10 @@ import io.github.colack.TrueEnds.Game.Party;
 import io.github.colack.TrueEnds.Utils.Sprite;
 import io.github.colack.TrueEnds.Game.Dialogue;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.util.Random;
+
 /**
  * The Game class is used to create a new game object and start the game.
  * @since 0.0.1
@@ -41,5 +45,14 @@ public class Game {
 
     public Party createParty() {
         return new Party();
+    }
+
+    public void createSprite(String name, int width, int height, boolean isDebug, String[] sprites) {
+        Sprite sprite = new Sprite(name, width, height, isDebug, sprites);
+        window.addSprite(sprite);
+    }
+
+    public void drawSprite(String name) {
+        window.drawSprite(name);
     }
 }

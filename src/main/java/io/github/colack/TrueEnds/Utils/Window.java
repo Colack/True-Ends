@@ -7,7 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.WindowConstants;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Window class for True Ends.
@@ -59,5 +66,30 @@ public class Window {
 
     public void addSprite(Sprite sprite) {
         sprites.add(sprite);
+    }
+
+    public void drawSprite(String name) {
+        for (Sprite sprite : sprites) {
+            if (sprite.name == name) {
+                drawCurrentSprite(sprite);
+            }
+        }
+    }
+
+    public void drawCurrentSprite(Sprite sprite) {
+        frame.add(new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                for (String spriteName : sprite.sprites) {
+                    try {
+                        BufferedImage image = ImageIO.read(new File(spriteName));
+                        g.drawImage(image, 0, 0, sprite.width, sprite.height, null);
+                    } catch (IOException e) {
+                        Util.TrueEndsError("Error reading image file: " + spriteName, true, false);
+                    }
+                }
+            }
+        });
     }
 }
