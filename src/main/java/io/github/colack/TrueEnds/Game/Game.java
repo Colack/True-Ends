@@ -2,14 +2,6 @@ package io.github.colack.TrueEnds.Game;
 
 import io.github.colack.TrueEnds.Utils.Util;
 import io.github.colack.TrueEnds.Utils.Window;
-import io.github.colack.TrueEnds.Game.Player;
-import io.github.colack.TrueEnds.Game.Party;
-import io.github.colack.TrueEnds.Utils.Sprite;
-import io.github.colack.TrueEnds.Game.Dialogue;
-
-import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.util.Random;
 
 /**
  * The Game class is used to create a new game object and start the game.
@@ -52,7 +44,7 @@ public class Game {
         window.addSprite(sprite);
     }
 
-    public void drawSprite(String name) {
-        window.drawSprite(name);
+    public void drawSprite(String name, int x, int y) {
+
     }
 }

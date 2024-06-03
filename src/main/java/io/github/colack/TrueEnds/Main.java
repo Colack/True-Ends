@@ -12,17 +12,6 @@ class Main {
         Game trueends = new Game(true);
         trueends.start();
 
-        // Print the current directory
-        System.out.println("Current Directory: " + System.getProperty("user.dir"));
-
-        // Create a new sprite for the window.
-        trueends.createSprite("player", 32, 32, true, new String[] {"src/main/resources/sprites/PLACEHOLDER_ANY.png"});
-        trueends.drawSprite("player");
-
-        // Make a loop for player input
-        while (true) {
-            trueends.getInput();
-        }
     }
 }
 

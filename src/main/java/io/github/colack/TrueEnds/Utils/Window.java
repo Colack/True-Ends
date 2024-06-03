@@ -1,20 +1,9 @@
 package io.github.colack.TrueEnds.Utils;
 
-import io.github.colack.TrueEnds.Utils.Util;
-import io.github.colack.TrueEnds.Utils.Sprite;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Arrays;
 
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.WindowConstants;
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 /**
  * Window class for True Ends.
@@ -61,35 +50,17 @@ public class Window {
 
     public void createSprite(String name, int width, int height, boolean isDebug, String[] sprites) {
         Sprite sprite = new Sprite(name, width, height, isDebug, sprites);
-        addSprite(sprite);
     }
 
-    public void addSprite(Sprite sprite) {
-        sprites.add(sprite);
-    }
-
-    public void drawSprite(String name) {
+    public void drawSprite(String name, int x, int y) {
         for (Sprite sprite : sprites) {
-            if (sprite.name == name) {
-                drawCurrentSprite(sprite);
+            if (sprite.name.equals(name)) {
+                sprite.draw(frame.getGraphics(), x, y);
             }
         }
     }
 
-    public void drawCurrentSprite(Sprite sprite) {
-        frame.add(new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                for (String spriteName : sprite.sprites) {
-                    try {
-                        BufferedImage image = ImageIO.read(new File(spriteName));
-                        g.drawImage(image, 0, 0, sprite.width, sprite.height, null);
-                    } catch (IOException e) {
-                        Util.TrueEndsError("Error reading image file: " + spriteName, true, false);
-                    }
-                }
-            }
-        });
+    public void addSprite(Sprite sprite) {
+        sprites.add(sprite);
     }
 }
