@@ -3,6 +3,8 @@ package io.github.colack.TrueEnds.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.github.colack.TrueEnds.Sprite.Sprite;
+
 import javax.swing.JFrame;
 
 /**
@@ -15,8 +17,7 @@ public class Window {
     public boolean resizable, visible, isDebug;
 
     private List<JFrame> frames = new ArrayList<JFrame>();
-    private JFrame frame;
-    private List<Sprite> sprites = new ArrayList<Sprite>();
+    public JFrame frame;
 
     public Window(String title, int width, int height, boolean resizable, boolean visible, boolean isDebug) {
         this.title = title;
@@ -46,21 +47,5 @@ public class Window {
 
     public void hide() {
         frame.setVisible(false);
-    }
-
-    public void createSprite(String name, int width, int height, boolean isDebug, String[] sprites) {
-        Sprite sprite = new Sprite(name, width, height, isDebug, sprites);
-    }
-
-    public void drawSprite(String name, int x, int y) {
-        for (Sprite sprite : sprites) {
-            if (sprite.name.equals(name)) {
-                sprite.draw(frame.getGraphics(), x, y);
-            }
-        }
-    }
-
-    public void addSprite(Sprite sprite) {
-        sprites.add(sprite);
     }
 }

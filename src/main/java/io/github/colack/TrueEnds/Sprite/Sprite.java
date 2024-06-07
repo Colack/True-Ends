@@ -1,6 +1,7 @@
 package io.github.colack.TrueEnds.Sprite;
 
 import javax.swing.JFrame;
+import java.io.File;
 
 /**
  * This is the Sprite class. It is used to create sprites for the game.
@@ -19,8 +20,9 @@ public class Sprite {
         this.height = height;
     }
 
-    public static String loadSprite(String path) {
-        return path;
+    public boolean verifyImageExists() {
+        File file = new File(path);
+        return file.exists();
     }
 
     public int getX() {
@@ -71,8 +73,7 @@ public class Sprite {
         return path;
     }
 
-    public static void draw(JFrame frame, Sprite sprite) {
-        // Draw the sprite
-
+    public void draw(JFrame frame) {
+        frame.getGraphics().drawImage(null, x, y, width, height, null);
     }
 }

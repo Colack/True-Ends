@@ -1,6 +1,6 @@
 package io.github.colack.TrueEnds;
 
-import io.github.colack.TrueEnds.Game.Game;
+import io.github.colack.TrueEnds.Graphics.Window;
 
 /**
  * Main class for True Ends.
@@ -8,11 +8,8 @@ import io.github.colack.TrueEnds.Game.Game;
  */
 class Main {
     public static void main(String[] args) {
-        // Create a new game object and start the game.
-        Game trueends = new Game(true);
-        trueends.start();
-
+        Window window = new Window();
+        window.create();
+        window.startGameThread();
     }
 }
-
-// Path: src/main/java/io/github/colack/TrueEnds/Main.java

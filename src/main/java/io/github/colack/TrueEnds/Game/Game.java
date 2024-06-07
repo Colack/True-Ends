@@ -2,6 +2,7 @@ package io.github.colack.TrueEnds.Game;
 
 import io.github.colack.TrueEnds.Utils.Util;
 import io.github.colack.TrueEnds.Utils.Window;
+import io.github.colack.TrueEnds.Sprite.Sprite;
 
 /**
  * The Game class is used to create a new game object and start the game.
@@ -17,6 +18,8 @@ public class Game {
     public Window window;
     public Party party;
     public boolean isDebug;
+
+    public int date = 830; // The date in the game, for example, 830 is the 30th of August, which is when the game starts.
 
     public Game(boolean isDebug) {
         window = createWindow();
@@ -39,12 +42,7 @@ public class Game {
         return new Party();
     }
 
-    public void createSprite(String name, int width, int height, boolean isDebug, String[] sprites) {
-        Sprite sprite = new Sprite(name, width, height, isDebug, sprites);
-        window.addSprite(sprite);
-    }
-
-    public void drawSprite(String name, int x, int y) {
-
+    public void display() {
+        window.display();
     }
 }
