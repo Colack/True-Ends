@@ -3,8 +3,6 @@ package io.github.colack.TrueEnds.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.colack.TrueEnds.Sprite.Sprite;
-
 import javax.swing.JFrame;
 
 /**
